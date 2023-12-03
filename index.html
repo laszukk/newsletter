@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>Newsletter</title>
+    <style type="text/css">
+      body {
+        margin: 0;
+      }
+      .page {
+        width: 100;
+        min-height: 200vh;
+        display: flex;
+        align-items: start;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+        background-color: #d5d5d5;
+      }
+
+      .newsletter{
+        width: 600px;
+        height: 200px;
+        background: #fffcf2;  
+        justify-content: center;
+        border-top: solid 4px #e4036c;
+        font-family: Helvetica, Arial, sans-serif;
+        color: #262426;
+      }
+
+      .header {
+        display: grid;
+        grid-auto-rows: 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+        background-color: #fffcf2;
+        justify-items: center;
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+
+      .banner {
+        color: #fffcf2;
+        overflow: hidden;
+        background: linear-gradient(90deg,rgb(19, 17, 19,0.9), rgb(38,36,38,0.9)), url("https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(90deg,rgb(19, 17, 19,0.9), rgb(38,36,38,0.9)), url("https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        background-size: cover;
+        padding: 40px 25px 40px 25px; 
+        
+      }
+      
+      .headline {
+        font-size: 50px;
+        font-weight: 600;
+        margin: 0 auto;
+      }
+
+      .text {
+        margin: 0;
+        padding-top: 10px;
+      }
+
+      .button-banner {
+        background-color: #e4036c;
+        border-radius: 4px;
+        font-size: 16px;
+        color: white;
+        padding: 12px 24px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-weight: 600;
+        margin: 4px 2px;
+        cursor: pointer;
+        border: solid 4px #e4036c;
+      }
+
+      .button-banner:hover {
+        background: none;
+        border: solid 4px #e4036c;
+        font-size: 16px;
+        color: white;
+        padding: 12px 24px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-weight: 600;
+        margin: 4px 2px;
+        cursor: pointer;
+      }
+
+      .schedule {
+        font-size: 25px;
+        font-weight: 600;
+        text-align: center;
+        background-color: #fffcf2;
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+
+      .schedule-icons {
+        display: grid;
+        grid-auto-rows: 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+        background-color: #fffcf2;
+        justify-items: center;
+        font-size: 50px;
+      }
+
+      .schedule-info {
+        padding-top: 5px;
+        display: grid;
+        grid-auto-rows: 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+        background-color: #fffcf2;
+        justify-items: center;
+        font-size: 16px;
+        font-weight: 600;
+        padding-bottom: 15px;
+      }
+
+      .speakers {
+        font-size: 25px;
+        font-weight: 600;
+        text-align: center;
+        background-color: #262426;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        color: #fffcf2;
+      }
+
+      .speakers-moreinfo {
+        text-align: center;
+        background-color: #262426;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        color: #fffcf2;
+      }
+
+      .speakers-info {
+        padding-top: 5px;
+        background-color: #262426;
+        justify-items: center;
+        display: grid;
+      }
+
+      .logo {
+        padding-top: 20px;
+        background-color: #e4036c;
+        justify-items: center;
+        display: grid;
+        color: #fffcf2;
+        font-size: 20px;
+        font-weight: 600;
+      }
+
+      .handwrite {
+        padding-top: 10px;
+        background-color: #fffcf2;
+        justify-items: center;
+        display: grid;
+        color: #fffcf2;
+        font-size: 20px;
+        font-weight: 600;
+      }
+
+
+      img {
+        border-radius: 50%;
+      }
+
+      .last {
+        text-align: center;
+        background-color: #fffcf2;
+        padding-top: 15px;
+        padding-bottom: 20px;
+        color: #262426;
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+
+      .centerdiv {
+        padding-bottom: 10px;
+        background-color: #fffcf2;
+        justify-items: center;
+        display: grid;
+      }
+
+      .social-icons {
+        padding-top: 20px;
+        display: grid;
+        gap: 2px;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; 
+        justify-items: center;
+        font-size: 24px;
+        padding-bottom: 5px;
+        background-color: #e4036c;
+      }
+
+      .social-icons .fa {
+        background-color: #fffcf2;
+        color: #e4036c;
+        padding: 20px;
+        font-size: 18px;
+        width: 18px;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 50%;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div id="root" class="page">
+      <div class="newsletter">
+        <section class="header">  
+          <div><a href="" style="text-decoration: none; color: #262426;">Page</a></div>
+          <div><a href="" style="text-decoration: none; color: #262426;">About us</a></div>
+          <div><a href="" style="text-decoration: none; color: #262426;">Contact us</a></div>
+        </section>
+        <div class="banner">
+          <p class="headline">Join our webinar this week!</p>
+          <p class="text">Information about webinar. Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit dolorum incidunt deleniti voluptate tempora quas, enim possimus asperiores minima sequi nihil doloribus atque nostrum! Magnam eaque at iusto reiciendis nulla.
+          </p>
+          <p><a href=""><button class="button-banner">Sign up</button></a></p>
+        </div>
+        <div class="schedule">Schedule</div>
+        <div class="schedule-icons">
+          <div><i class="fa fa-clock-o" aria-hidden="true"></i></div>
+          <div><i class="fa fa-calendar" aria-hidden="true"></i></div>
+          <div><i class="fa fa-desktop" aria-hidden="true"></i></div>
+        </div>
+        <div class="schedule-info">
+          <div>9 PM CST</div>
+          <div>7 Dec</div>
+          <div>Via Microsoft Teams</i></div>
+        </div>
+        <div class="speakers">
+          Who will be speaking?
+        </div>
+        <div class="speakers-info">
+          <img src="woman.jpg" width="160px">
+        </div>
+        <div class="speakers-moreinfo">
+          <b>Jane Doe</b>
+          <br>
+          UI/UX Designer at Odelo
+        </div>
+        <div class="schedule">Number of slots is limited. <br>See you there!
+          <div class="handwrite">
+            <img src="handwrite.png" width="200px">
+          </div>
+        </div>
+          <div class="social-icons">
+            <div></div>
+            <div></div>
+            <div><a href="" style="text-decoration: none; color: #fffcf2;"><i class="fa fa-facebook" aria-hidden="true"></i></a></div>
+            <div><a href="" style="text-decoration: none; color: #fffcf2;"><i class="fa fa-twitter" aria-hidden="true"></i></a></div>
+            <div><a href="" style="text-decoration: none; color: #fffcf2;"><i class="fa fa-twitch" aria-hidden="true"></i></a></div>
+            <div><a href="" style="text-decoration: none; color: #fffcf2;"><i class="fa fa-instagram" aria-hidden="true"></i></a></div>
+            <div></div>
+            <div></div>
+          </div>
+          <div class="logo">
+            <img src="logo.png" width="100px">
+            <br>
+            ul. Prosta 70
+            00-838 Warszawa
+          </div>
+          <div class="last" style="background-color: #e4036c; color:#fffcf2;">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magnam repellendus voluptate nemo, cumque modi consequuntur ducimus aut maiores distinctio quasi consectetur beatae saepe impedit. Neque aspernatur at atque officiis similique!
+            <br><br><b>
+              <a href="" style="text-decoration: none; color: #fffcf2;">PRIVACY</a>
+              | 
+              <a href="" style="text-decoration: none; color: #fffcf2;">FAQ</a>
+               |  
+               <a href="" style="text-decoration: none; color: #fffcf2;">CONTACT</a>
+            </b><br>
+          </div>
+          <div class="last">
+            This message is auto-generated. <a href="" style="text-decoration: underline;">Unsubscribe from newsletter.</a> 
+          </div>
+      </div>
+    </div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  </body>
+</html>
